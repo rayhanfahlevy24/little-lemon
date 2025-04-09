@@ -1,25 +1,19 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { Stack } from "expo-router";
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    Markazi: require('../assets/fonts/MarkaziText.ttf'),
+    MarkaziMedium: require('../assets/fonts/MarkaziText-Medium.ttf'),
+    MarkaziSemiBold: require('../assets/fonts/MarkaziText-SemiBold.ttf'),
+    MarkaziBold: require('../assets/fonts/MarkaziText-Bold.ttf'),
   });
 
   useEffect(() => {
     if (loaded) {
-      SplashScreen.hideAsync();
+      console.log('Fonts loaded');
     }
   }, [loaded]);
 
@@ -28,12 +22,14 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
-  );
+    <Stack>
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="food" options={{ headerShown: false }} />
+      <Stack.Screen name="reservations" options={{ headerShown: false }} />
+      <Stack.Screen name="checkout" options={{ headerShown: false }} />
+      <Stack.Screen name="stepone" options={{ headerShown: false }} />
+      <Stack.Screen name="reservationsdetail" options={{ headerShown: false }} />
+      <Stack.Screen name="paymentdetail" options={{ headerShown: false }} />
+    </Stack>
+  )
 }
