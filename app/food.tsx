@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Alert,
+  ScrollView,
 } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useState } from "react";
@@ -52,7 +53,7 @@ export default function Food() {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Image source={{ uri: image as string }} style={styles.images} />
       <Text style={styles.name}>{name}</Text>
       <Text style={styles.description}>{description}</Text>
@@ -101,7 +102,7 @@ export default function Food() {
       <TouchableOpacity style={styles.addButton} onPress={handleAddToCart}>
         <Text style={styles.addText}>Add for ${totalPrice.toFixed(2)}</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 }
 

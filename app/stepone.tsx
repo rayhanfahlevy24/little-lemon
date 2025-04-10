@@ -260,12 +260,13 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: "#EDEFEE",
     borderRadius: 15,
-    alignItems: "center",
     marginHorizontal: 20,
     marginBottom: 20,
     fontSize: 22,
     fontFamily: "MarkaziMedium",
     paddingLeft: 20,
+    height: 55,
+    paddingVertical: 10,
   },
   contact: {
     fontFamily: "MarkaziSemiBold",

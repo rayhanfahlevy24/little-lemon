@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Dimensions, TouchableOpacity, Modal, FlatList, Alert } from "react-native";
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity, Modal, FlatList, Alert, StatusBar } from "react-native";
 import { Feather, AntDesign } from '@expo/vector-icons';
 import { getFormatedDate } from "react-native-modern-datepicker";
 import DatePickerModal from "@/components/DatePickerModal";
@@ -63,7 +63,6 @@ export default function Reservations() {
 
   return (
     <View style={styles.container}>
-      {/* <StatusBar hidden /> */}
       <Text style={styles.textBooking}>Choose Your Booking Date!</Text>
       <View style={{ width: width - 20 }}>
         <TouchableOpacity onPress={handleOnPressStartDate} style={styles.inputBtn}>

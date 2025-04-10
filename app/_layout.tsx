@@ -1,19 +1,19 @@
 import { Stack } from "expo-router";
-import { useFonts } from 'expo-font';
-import { useEffect } from 'react';
+import { useFonts } from "expo-font";
+import { useEffect } from "react";
+import { StatusBar } from "react-native";
 
 export default function RootLayout() {
-
   const [loaded] = useFonts({
-    Markazi: require('../assets/fonts/MarkaziText.ttf'),
-    MarkaziMedium: require('../assets/fonts/MarkaziText-Medium.ttf'),
-    MarkaziSemiBold: require('../assets/fonts/MarkaziText-SemiBold.ttf'),
-    MarkaziBold: require('../assets/fonts/MarkaziText-Bold.ttf'),
+    Markazi: require("../assets/fonts/MarkaziText.ttf"),
+    MarkaziMedium: require("../assets/fonts/MarkaziText-Medium.ttf"),
+    MarkaziSemiBold: require("../assets/fonts/MarkaziText-SemiBold.ttf"),
+    MarkaziBold: require("../assets/fonts/MarkaziText-Bold.ttf"),
   });
 
   useEffect(() => {
     if (loaded) {
-      console.log('Fonts loaded');
+      console.log("Fonts loaded");
     }
   }, [loaded]);
 
@@ -22,14 +22,25 @@ export default function RootLayout() {
   }
 
   return (
-    <Stack>
-      <Stack.Screen name="index" options={{ headerShown: false }} />
-      <Stack.Screen name="food" options={{ headerShown: false }} />
-      <Stack.Screen name="reservations" options={{ headerShown: false }} />
-      <Stack.Screen name="checkout" options={{ headerShown: false }} />
-      <Stack.Screen name="stepone" options={{ headerShown: false }} />
-      <Stack.Screen name="reservationsdetail" options={{ headerShown: false }} />
-      <Stack.Screen name="paymentdetail" options={{ headerShown: false }} />
-    </Stack>
-  )
+    <>
+      <StatusBar  
+        backgroundColor="#fff"
+        barStyle="dark-content"
+      />
+
+      <Stack
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="index" />
+        <Stack.Screen name="food" />
+        <Stack.Screen name="reservations" />
+        <Stack.Screen name="checkout" />
+        <Stack.Screen name="stepone" />
+        <Stack.Screen name="reservationsdetail" />
+        <Stack.Screen name="paymentdetail" />
+      </Stack>
+    </>
+  );
 }
